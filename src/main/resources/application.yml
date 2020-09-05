@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssdemo?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+    password:
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ksatish.narola@gmail.com
+    password: 4c0j1h1n06caW1x
+    protocol: smtp
+    tls: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 864000000
+
+demo:
+    mail:
+      baseUrl: http://localhost:8082/
+
+server:
+  port: 8082

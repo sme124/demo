@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="#{account.activation.title}">Email Verification</title>
+    <style>
+
+        .header {
+            margin: 0;
+            padding: 10px;
+            padding-left: 30px;
+        }
+        .activation_btn {
+            background-color: #3c3539;
+            color: #fff !important;
+            padding: .675rem .75rem;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="container" style="padding:0;max-width: 767px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);margin: 20px auto;border-radius:3px;overflow:hidden;">
+
+    <div style="padding:30px;margin:0; display: block;vertical-align:top;  background-color: #ffffff; text-align:left;  ">
+
+        <p th:text="#{email.greeting(${name})}" style="padding:0;margin-top:0;color:#000;font-size:14px;font-weight:bold;font-family:Arial,Helvetica, sans-serif;line-height:22px;">
+            Hello
+        </p>
+        <p>
+            <span th:text="#{account.activation.text2}"
+                  style="padding:0; margin-top:0; color:#000; font-size:14px; font-weight:400; font-family:Arial, Helvetica, sans-serif; line-height:22px;">
+            Your account has been successfully created!
+            </span><br><br>
+            <span th:text="#{account.activation.text3}"
+                  style="padding:0; margin-top:0; color:#000; font-size:14px; font-weight:400; font-family:Arial, Helvetica, sans-serif; line-height:22px;">
+             We just want to confirm that it was you who signed up with this email. To activate your account please click below.
+            </span>
+        </p>
+        <p style="padding:0; margin-top:0; font-size:14px; font-weight:400; font-family:Arial, Helvetica, sans-serif; line-height:22px;">
+            <a class="activation_btn" th:href="@{|${baseUrl}|}" th:text="#{account.activation.text4}">VERIFY EMAIL</a>
+        </p>
+
+        <p style="margin-top:0; color:#000; font-size:14px; font-weight:400; font-family:Arial, Helvetica, sans-serif; line-height:22px;">
+            <strong><em th:text="#{email.footer.signature2}">Thank You.</em></strong>
+        </p>
+    </div>
+
+    <div style="padding:10px;border-top: 1px solid #ccc;">
+        <p style="text-align: -moz-left;padding: 0;margin: 0;color: #666;font-size: 16px;">
+            This is a system generated email, do not reply to this email id.
+        </p>
+    </div>
+</div>
+</body>
+
+</html>
