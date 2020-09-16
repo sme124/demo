@@ -27,8 +27,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthToken> authenticate(@RequestBody @Valid LoginRequest loginRequest) {
+    public ResponseEntity<ApiResponse> authenticate(@RequestBody @Valid LoginRequest loginRequest) {
         return ResponseEntity.ok(authService.authenticateUser(loginRequest));
+    }
+
+    @PostMapping("/otp-verification")
+    public ResponseEntity<AuthToken> validateOtp(@RequestBody @Valid LoginRequest loginRequest) {
+        return ResponseEntity.ok(authService.verifyOtp(loginRequest));
     }
 
 }

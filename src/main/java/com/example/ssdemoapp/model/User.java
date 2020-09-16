@@ -31,6 +31,8 @@ public class User {
 
     private Boolean active;
 
+    private String mobile;
+
     private String verificationCode;
 
     private Date createdDate;

@@ -47,7 +47,7 @@ public class MailService {
       message.setSubject(subject);
       message.setText(content, isHtml);
       javaMailSender.send(mimeMessage);
-      log.info("Sent email to User '{}' and from '{}'", to, "no-reply@test.com");
+      log.info("Sent email to User '{}' from '{}'", to, "no-reply@test.com");
     } catch (final Exception e) {
       if (log.isDebugEnabled()) {
         log.warn("Email could not be sent to user '{}'", to, e);
@@ -78,5 +78,11 @@ public class MailService {
   public void sendVerificationEmail(Map<String, Object> userDetails) {
     log.info("Sending verification email to '{}'", userDetails.get("email"));
     sendEmailFromTemplate(userDetails, "registrationVerification", "account.activation.title", "users/" + userDetails.get("email") + "/email-verification?code=" + userDetails.get("activationCode"));
+  }
+
+  @Async
+  public void sendOtpVerificationEmail(Map<String, Object> userDetails) {
+    log.info("Sending verification email to '{}'", userDetails.get("email"));
+    sendEmailFromTemplate(userDetails, "otpVerification", "otp.verification.title", null);
   }
 }

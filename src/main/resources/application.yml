@@ -38,3 +38,24 @@ demo:
 
 server:
   port: 8082
+
+#otp.simulation: true OTP will be send to mobile
+#otp.simulation: false get OTP from log
+#otp.validity.time: in minutes
+#otp.attempt: how many times user can enter wrong otp
+#otp.block.time: time limit in minutes after wrong attempts
+otp:
+  length: 4
+  simulation: true
+  validity.time: 1
+  attempt: 3
+  block.time: 120
+
+#set true to send OTP from Nexmo
+sms.sender:
+  nexmo: true
+
+sms.provider:
+  nexmo:
+    api.key: d771f0ff
+    api.secret: QOcT1StX1u5t0MrJ

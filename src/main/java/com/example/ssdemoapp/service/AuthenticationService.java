@@ -8,5 +8,7 @@ import com.example.ssdemoapp.dto.UserDto;
 public interface AuthenticationService {
     ApiResponse registerUser(UserDto dto);
 
-    AuthToken authenticateUser(LoginRequest loginRequest);
+    ApiResponse authenticateUser(LoginRequest loginRequest);
+
+    AuthToken verifyOtp(LoginRequest loginRequest);
 }
